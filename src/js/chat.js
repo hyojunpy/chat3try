@@ -1,14 +1,14 @@
 "use strict" // 자바스크립트의 오류를 줄여줌 
 const socket = io();
 
-const nickname = document.querySelector("#nickname")
+const nickname = document.querySelector("#nickname")    // document.querySelectorAll(선택자) 해당 선택자로 선택되는 요소를 모두 선택함
 const chatList = document.querySelector(".chatting-list")
 const chatInput = document.querySelector(".chatting-input");    //
 const sendButton = document.querySelector(".send-button");
 const displayContainer = document.querySelector(".display-container");
 
 
-chatInput.addEventListener("keypress", (event)=>{
+chatInput.addEventListener("keypress", (event)=>{   //엔터키 이벤트 처리기
     if(event.keycode === 13){
         send()
     }
@@ -39,7 +39,7 @@ function LiModel(name, msg, time) {
     this.time = time;
 
     this.makeLi = () => {
-        const li = document.createElement("li");
+        const li = document.createElement("li");    //document.createElement("http요소"); http요소를 생성한다.  
         li.classList.add(nickname.value === this.name ? "sent" : "received")
         const dom = `<span class="profile"> 
         <span class="user">${this.name}</span>
